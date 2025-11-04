@@ -90,7 +90,7 @@ public interface DAOMapper {
             " AND t.is_ms_shipped = 0 \n" +
             " AND i.OBJECT_ID > 255 \n" +
             "GROUP BY \n" +
-            " t.Name, s.Name, p.Rows")
+            " s.Name, t.Name, s.Name, p.Rows")
     List<DbMSSQLBean> findTablesInfoMSSql();
 
     @Select("SELECT\n" +
@@ -343,7 +343,7 @@ public interface DAOMapper {
     "Where nodes.store_id in (select id from alf_store where protocol = 'workspace' and identifier = 'SpacesStore') " +
     "group by mimetype_str ")
     List<NodeMimeTypeBean> listActiveNodesByMimetype();
-    
+
     @Select("SELECT substr(nodes.audit_created,1,7) as creationDate, ns.uri as namespace, names.local_name as propertyName, count(*) as count " +
     "FROM alf_node nodes " +
     "  JOIN alf_qname names ON (nodes.type_qname_id = names.id) " +
