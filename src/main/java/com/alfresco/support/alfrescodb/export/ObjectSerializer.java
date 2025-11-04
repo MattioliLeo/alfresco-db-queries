@@ -36,7 +36,7 @@ public class ObjectSerializer {
     }
     
     private static void serializeToJson(Object object, String outputPath) throws IOException {
-        ObjectMapper jsonMapper = new ObjectMapper().findAndRegisterModules();
+        ObjectMapper jsonMapper = new ObjectMapper();
         jsonMapper.setDefaultPropertyInclusion(JsonInclude.Include.NON_DEFAULT); //Remove null and default values from serialization
         jsonMapper.enable(SerializationFeature.INDENT_OUTPUT); // Pretty print
         jsonMapper.writeValue(new File(outputPath), object);

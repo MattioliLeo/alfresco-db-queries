@@ -2,14 +2,10 @@ package com.alfresco.support.alfrescodb.beans;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.sql.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ActivitiesFeedByApplication implements Serializable {
     private BigInteger count;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss.SSSZ")
-    private Date postDate;
+    private String postDate;
     private String siteNetwork;
     private String appTool;
     
@@ -19,10 +15,10 @@ public class ActivitiesFeedByApplication implements Serializable {
     public void setCount(BigInteger count) {
         this.count = count;
     }
-    public Date getPostDate() {
+    public String getPostDate() {
         return postDate;
     }
-    public void setPostDate(Date postDate) {
+    public void setPostDate(String postDate) {
         this.postDate = postDate;
     }
     public String getSiteNetwork() {

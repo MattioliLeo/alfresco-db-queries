@@ -16,7 +16,7 @@ Alfresco Database Queries Report is a Spring-Boot application developed to run a
   - JMX changes
   - Export Report
 
-  Works with Postgres, MySQL databases.
+  Works with PostgreSQL, MySQL databases.
   Future releases will be compatible with Oracle and MS-SQL databases too.
 
 ### Installation
@@ -35,7 +35,7 @@ The steps to build the application are:
 ### Compiling and building the executable jar file
 
 The build is based on Maven profiles. The available profiles are:
-- postgres
+- postgresql
 - mysql
 - mssql
 - oracle

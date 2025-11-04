@@ -212,27 +212,27 @@ public interface DAOMapper {
     /*
      * Activities Feed
      */
-    @Select("select count(*) as count, CAST(post_date AS DATE) postDate, site_network as siteNetwork, activity_type as activityType "
+    @Select("select count(*) as count, TRIM(cast(CAST(post_date AS date) as char)) postDate, site_network as siteNetwork, activity_type as activityType "
             +
             "from alf_activity_feed " +
             "where feed_user_id = post_user_id " +
-            "group by CAST(post_date AS DATE), site_network, activity_type ")
+            "group by TRIM(cast(CAST(post_date AS date) as char)), site_network, activity_type ")
     List<ActivitiesFeedByTypeBean> listActivitiesByActivityType();
 
-    @Select("select count(*) as count, CAST(post_date AS DATE) postDate, site_network as siteNetwork, feed_user_id as feedUserId "
+    @Select("select count(*) as count, TRIM(cast(CAST(post_date AS date) as char)) postDate, site_network as siteNetwork, feed_user_id as feedUserId "
             +
             "from alf_activity_feed " +
             "where feed_user_id != '@@NULL@@' " +
             "and feed_user_id = post_user_id " +
-            "group by CAST(post_date AS DATE), site_network, feed_user_id ")
+            "group by TRIM(cast(CAST(post_date AS date) as char)), site_network, feed_user_id ")
     List<ActivitiesFeedByUserBean> listActivitiesByUser();
 
-    @Select("select count(*) as count, CAST(post_date AS DATE) postDate, site_network as siteNetwork, app_tool as appTool "
+    @Select("select count(*) as count, TRIM(cast(CAST(post_date AS date) as char)) postDate, site_network as siteNetwork, app_tool as appTool "
             +
             "from alf_activity_feed " +
             "where feed_user_id != '@@NULL@@' " +
             "and feed_user_id = post_user_id " +
-            "group by CAST(post_date AS DATE), site_network, app_tool ")
+            "group by TRIM(cast(CAST(post_date AS date) as char)), site_network, app_tool ")
     List<ActivitiesFeedByApplication> listActivitiesByApplication();
 
     /*

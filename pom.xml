@@ -132,7 +132,7 @@
 
     <profiles>
         <profile>
-            <id>postgres</id>
+            <id>postgresql</id>
             <dependencies>
                 <dependency>
                     <groupId>org.postgresql</groupId>
